@@ -71,7 +71,7 @@ def core(text):
             locate=str(locate)
             locate=locate.split(",")
             city=locate[2]
-            text=weather(city)
+            text=f'In {city} {weather(city)}'
             speak(text)
         except:
             text="Sorry about that but I couldn't access the server"
