@@ -2,6 +2,7 @@
 from speak import speak
 from search import search
 from location import location
+from weather import weather
 import webbrowser
 import pyjokes
 import datetime
@@ -22,6 +23,12 @@ commandI='jarvis tell me the time'
 #commands for telling location
 commandJ='jarvis where am i'
 commandK='jarvis tell me my location'
+#commands for telling weather of the current city
+commandL='jarvis how is the weather'
+commandM='jarvis tell me about the weather'
+#commands for telling weather of the required city
+commandL='how is the weather in'
+commandM='tell me about the weather of'
 
 def core(text):
     q=text.lower()
@@ -57,6 +64,29 @@ def core(text):
             text="Sorry about that but I couldn't access your location"
             speak(text)
 
+    #for telling weather of the current city
+    elif q.replace(" ","") in commandL.replace(" ","") or q.replace(" ","") in commandM.replace(" ",""):
+        try:
+            locate=location()
+            locate=str(locate)
+            locate=locate.split(",")
+            city=locate[2]
+            text=weather(city)
+            speak(text)
+        except:
+            text="Sorry about that but I couldn't access the server"
+            speak(text)
+
+    #for telling weather of the required city
+    elif commandL.replace(" ","") in q.replace("jarvis","").replace("j.a.r.v.i.s","").replace(" ","") or commandM.replace(" ","") in q.replace("jarvis","").replace("j.a.r.v.i.s","").replace(" ",""):
+        try:
+            city=q.replace("jarvis","").replace("j.a.r.v.i.s","").replace(" ","")
+            city=city.replace(commandL.replace(" ",""),"")
+            text=weather(city)
+            speak(text)
+        except:
+            text="Sorry about that but I couldn't access the server"
+            speak(text)
 
     #for playing music
     elif q.find("play")==0 or q.replace(" ","").find("jarvisplay")==0:
