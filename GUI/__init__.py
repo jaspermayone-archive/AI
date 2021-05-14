@@ -19,10 +19,10 @@ class jarvis(QMainWindow):
         GUI_HTML = """
         <head>
         </head>
-        <body style="background-color:black;">
+        <body style="background-color:#0b0b13;">
         <br>
         <center>
-        <img src = "https://cdn.dribbble.com/users/1373613/screenshots/6200333/__1.gif" width=700px>
+        <img src = "https://raw.githubusercontent.com/SaptakBhoumik/J.A.R.V.I.S/master/GUI/bg.gif?token=ATGZVDHQYPCXOCGUH5IFASLATYX5M" width=700px>
         <center>
         </body>
         """
