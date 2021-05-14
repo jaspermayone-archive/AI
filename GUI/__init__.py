@@ -11,15 +11,18 @@ class jarvis(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("J.A.R.V.I.S")
-        self.setGeometry(100,100,1200,800)
+        # self.setGeometry(100,100,800,600)
+        self.setFixedHeight(600)
+        self.setFixedWidth(800)
+        self.setWindowFlags(Qt.CustomizeWindowHint)
 
         GUI_HTML = """
         <head>
         </head>
-        <body style="background-color:#0e2225;">
-        <br><br><br><br>
+        <body style="background-color:black;">
+        <br>
         <center>
-        <img src = "https://i.pinimg.com/originals/b6/bd/de/b6bddea4ccb7ce783a32e86c379ddf53.gif" width=700px>
+        <img src = "https://cdn.dribbble.com/users/1373613/screenshots/6200333/__1.gif" width=700px>
         <center>
         </body>
         """
