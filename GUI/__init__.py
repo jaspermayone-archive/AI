@@ -1,5 +1,4 @@
 import sys
-from time import time
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtWebEngineWidgets import *
@@ -11,9 +10,8 @@ class jarvis(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("J.A.R.V.I.S")
-        # self.setGeometry(100,100,800,600)
         self.setFixedHeight(500)
-        self.setFixedWidth(1120)
+        self.setFixedWidth(1100)
         self.setWindowFlags(Qt.CustomizeWindowHint)
 
         GUI_HTML = """
@@ -21,8 +19,9 @@ class jarvis(QMainWindow):
         </head>
         <body style="background-color:white;">
         <center>
-        <img src = "https://raw.githubusercontent.com/SaptakBhoumik/J.A.R.V.I.S/master/GUI/assest/assest.gif?token=ATGZVDHRW7MFTWEKEVGPXPLATYZCY" width=1100px>
+        <img src = "https://raw.githubusercontent.com/SaptakBhoumik/J.A.R.V.I.S/master/GUI/assest/assest.gif?token=ATGZVDGW2CWPTOHXZY46G43ATY3RG" width=800px>
         <center>
+        <hr>
         </body>
         """
 
