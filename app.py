@@ -15,8 +15,9 @@ class GUI(QtWidgets.QMainWindow):
         self.nav = QtWidgets.QToolBar("Navigation")
         self.nav.setOrientation(QtCore.Qt.Vertical)
         self.nav.setIconSize(QtCore.QSize(200, 200))
+        self.nav.setContextMenuPolicy(QtCore.Qt.PreventContextMenu)
         self.nav.setMovable(False)
-        self.addToolBar(QtCore.Qt.RightToolBarArea, self.nav)
+        self.addToolBar(self.nav)
 
         self.mic = QtWidgets.QAction(QtGui.QIcon(os.path.join('images', 'mic.jpg')), "Add new tab", self)
 
