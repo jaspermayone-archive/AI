@@ -4,7 +4,7 @@ import requests
 def weather(city):    
     url = f"https://www.google.com/search?q=weather{city}" 
     html = requests.get(url).content
-    soup = BeautifulSoup(html, 'html.parser')
+    soup = BeautifulSoup(resp.text,"lxml")
     temp = soup.find('div', attrs={'class': 'BNeawe iBp4i AP7Wnd'}).text
     str = soup.find('div', attrs={'class': 'BNeawe tAd8D AP7Wnd'}).text
     data = str.split('\n')

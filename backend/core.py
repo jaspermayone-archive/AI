@@ -12,7 +12,7 @@ import YouTubeMusicAPI as ytm
 commandA='who are you'
 commandB='what is your name'
 commandC='who is jarvis'
-commandD='jarvis who is j.a.r.v.i.s'
+commandD='jarvis who is jarvis'
 commandE='jarvis introduce yourself'
 #commands for telling jokes
 commandF='jarvis tell me a joke'
@@ -29,9 +29,12 @@ commandM='jarvis tell me about the weather'
 #commands for telling weather of the required city
 commandL='how is the weather in'
 commandM='tell me about the weather of'
+#commands for greeting
+commandN='jarvis how are you'
 
 def core(text):
     q=text.lower()
+    q=text.replace(".","")
 
     #for 0 input
     if q.replace(" ","")=="":
@@ -41,6 +44,11 @@ def core(text):
     #for introduction
     elif q.replace(" ","") in commandA.replace(" ","") or q.replace(" ","") in commandB.replace(" ","") or q.replace(" ","") in commandC.replace(" ","") or q.replace(" ","") in commandD.replace(" ","") or q.replace(" ","") in commandE.replace(" ",""):
         text="Hello I am jarvis how may I help you"
+        speak(text)
+
+    #for greeting
+    elif q.replace(" ","") in commandN.replace(" ",""):
+        text="I am fine how may I help you"
         speak(text)
 
     #for telling joke
