@@ -1,8 +1,13 @@
-from newscatcher import Newscatcher
-nc = Newscatcher(website = 'nytimes.com')
-results = nc.get_news()
+import bs4
+from urllib.request import urlopen
 
-articles = results['articles']
-first_article_summary = articles[0]['summary']
-first_article_title = articles[0]['title']
-print(first_article_summary)
+def news():
+    url = "https://news.google.com/news/rss"
+    client = urlopen(url)
+    xml_page = client.read()
+    client.close()
+    page = bs4.BeautifulSoup(xml_page, 'xml')
+    news_list = page.findAll("item")
+    for news in news_list:
+        headlines=news.title.text
+        return headlines                   
