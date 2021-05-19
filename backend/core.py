@@ -10,7 +10,7 @@ import datetime
 import YouTubeMusicAPI as ytm
 
 
-internet="here is what I found on the internet"
+
 #commands for introduction
 commandA='who are you'
 commandB='what is your name'
