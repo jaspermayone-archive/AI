@@ -8,6 +8,7 @@ def news():
     client.close()
     page = bs4.BeautifulSoup(xml_page, 'xml')
     news_list = page.findAll("item")
+    headlines=""
     for news in news_list:
-        headlines=news.title.text
-        return headlines                   
+        headlines+=news.title.text
+    return headlines                   

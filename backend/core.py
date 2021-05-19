@@ -3,11 +3,14 @@ from speak import speak
 from search import search
 from location import location
 from weather import weather
+from news import news
 import webbrowser
 import pyjokes
 import datetime
 import YouTubeMusicAPI as ytm
 
+
+internet="here is what I found on the internet"
 #commands for introduction
 commandA='who are you'
 commandB='what is your name'
@@ -31,46 +34,49 @@ commandL='how is the weather in'
 commandM='tell me about the weather of'
 #commands for greeting
 commandN='jarvis how are you'
+#commands for news
+commandO='jarvis what happened today'
+commandP='jarvis tell me about the news'
 
-def core(text):
-    q=text.lower()
-    q=text.replace(".","")
+def core(query):
+    q=query.lower()
+    q=query.replace(".","")
 
     #for 0 input
     if q.replace(" ","")=="":
         text="Sorry about that I didn't hear anything"
-        speak(text)
+        
 
     #for introduction
     elif q.replace(" ","") in commandA.replace(" ","") or q.replace(" ","") in commandB.replace(" ","") or q.replace(" ","") in commandC.replace(" ","") or q.replace(" ","") in commandD.replace(" ","") or q.replace(" ","") in commandE.replace(" ",""):
-        text="Hello I am jarvis how may I help you"
-        speak(text)
+        text="Allow me to introduce myself I am Jarvis, the virtual artificial intelligence and I'm here to assist you with a variety of tasks as best I can, 24 hours a day seven days a week"
+        
 
     #for greeting
     elif q.replace(" ","") in commandN.replace(" ",""):
         text="I am fine how may I help you"
-        speak(text)
+        
 
     #for telling joke
     elif q.replace(" ","") in commandF.replace(" ","") or q.replace(" ","") in commandG.replace(" ",""):
         text=pyjokes.get_joke(language='en', category= 'all')
-        speak(text)
+        
 
     #for telling time
     elif q.replace(" ","") in commandH.replace(" ","") or q.replace(" ","") in commandI.replace(" ",""):
         time=datetime.datetime.now().strftime('%I:%M %p')
         text=f'now it is {time}'
-        speak(text)
+        
 
-    #for telling location
-    elif q.replace(" ","") in commandJ.replace(" ","") or q.replace(" ","") in commandK.replace(" ",""):
+    #for telling news
+    elif q.replace(" ","") in commandO.replace(" ","") or q.replace(" ","") in commandP.replace(" ","") or q.replace(" ","") == "news":
         try:
-            locate=location()
-            text=f'You are currently in {locate}'
-            speak(text)
+            
+            text=news()
+            
         except:
-            text="Sorry about that but I couldn't access your location"
-            speak(text)
+            text="Sorry about that but I couldn't access the server"
+            
 
     #for telling weather of the current city
     elif q.replace(" ","") in commandL.replace(" ","") or q.replace(" ","") in commandM.replace(" ",""):
@@ -80,10 +86,10 @@ def core(text):
             locate=locate.split(",")
             city=locate[2]
             text=f'In {city} {weather(city)}'
-            speak(text)
+            
         except:
             text="Sorry about that but I couldn't access the server"
-            speak(text)
+            
 
     #for telling weather of the required city
     elif commandL.replace(" ","") in q.replace("jarvis","").replace("j.a.r.v.i.s","").replace(" ","") or commandM.replace(" ","") in q.replace("jarvis","").replace("j.a.r.v.i.s","").replace(" ",""):
@@ -91,45 +97,49 @@ def core(text):
             city=q.replace("jarvis","").replace("j.a.r.v.i.s","").replace(" ","")
             city=city.replace(commandL.replace(" ",""),"")
             text=weather(city)
-            speak(text)
         except:
             text="Sorry about that but I couldn't access the server"
-            speak(text)
+            
 
     #for playing music
     elif q.find("play")==0 or q.replace(" ","").find("jarvisplay")==0:
         query=q.replace("play","")
         query=q.replace("jarvis","")
-        if query.replace(" ","")=='play':
-            webbrowser.open('https://www.google.com/search?q=play')
-        elif query.replace(" ","")=='playmeaning':
-            webbrowser.open('https://www.google.com/search?q=play+meaning')
-        else:
-            try:
+        try:
+            text="here is what i found on the internet"
+            if query.replace(" ","")=='play':
+                webbrowser.open('https://www.google.com/search?q=play')
+            elif query.replace(" ","")=='playmeaning':
+                webbrowser.open('https://www.google.com/search?q=play+meaning')
+            else:
                 ytm.play(query)
-            except:
-                text="Sorry about that but I couldn't understand which music to play"
-                speak(text)
+        except:
+            text="Sorry about that but I couldn't understand which music to play"
+                
 
     #for opening url
     elif q.find("open")==0 or q.replace(" ","").find("jarvisopen")==0 :
-        if q.replace(' ','')=='open':
-            webbrowser.open('https://www.google.com/search?q=open') 
-        if q.replace(' ','')=='openmeaning':#open meaning
-            webbrowser.open('https://www.google.com/search?q=open+meaning') 
-        else:
-            query=q.replace("open","")
-            query=q.replace("jarvis","")
-            results=search(query)
-            try:
+        try:
+            text="here is what i found on the internet"
+            if q.replace(' ','')=='open':
+                webbrowser.open('https://www.google.com/search?q=open') 
+            if q.replace(' ','')=='openmeaning':#open meaning
+                webbrowser.open('https://www.google.com/search?q=open+meaning') 
+            else:
+                query=q.replace("open","")
+                query=q.replace("jarvis","")
+                results=search(query)
                 webbrowser.open(results)
-            except:
-                text="Sorry about that but I couldn't understand what to open"
-                speak(text)
-
+        except:
+            text="Sorry about that but I couldn't understand what to open"
+            
     #searching the web if can't answer question
     else:
-        webbrowser.open(f'https://www.google.com/search?q={text}') 
+        text="here is what i found on the internet"
+        webbrowser.open(f'https://www.google.com/search?q={query}') 
+    
+
+    speak(text)
 
 
 a=input()
