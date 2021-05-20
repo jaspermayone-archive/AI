@@ -4,6 +4,8 @@ from search import search
 from location import location
 from weather import weather
 from news import news
+import screen_brightness_control as sbc
+import wikipedia  
 import webbrowser
 import pyjokes
 import datetime
@@ -37,6 +39,20 @@ commandN='jarvis how are you'
 #commands for news
 commandO='jarvis what happened today'
 commandP='jarvis tell me about the news'
+#commands for asking question
+commandQ='who is'
+commandR='what is'
+#commands for reducing brightness
+commandS='jarvis reduce the brightness'
+commandT='jarvis reduce the screen brightness'
+commandU='jarvis reduce screen brightness'
+commandV='jarvis reduce brightness'
+#commands for increasing brightness
+commandW='jarvis increase the brightness'
+commandX='jarvis increase the screen brightness'
+commandY='jarvis increase screen brightness'
+commandZ='jarvis increase brightness'
+
 
 def core(query):
     q=query.lower()
@@ -49,13 +65,36 @@ def core(query):
 
     #for introduction
     elif q.replace(" ","") in commandA.replace(" ","") or q.replace(" ","") in commandB.replace(" ","") or q.replace(" ","") in commandC.replace(" ","") or q.replace(" ","") in commandD.replace(" ","") or q.replace(" ","") in commandE.replace(" ",""):
-        text="Allow me to introduce myself I am Jarvis, the virtual artificial intelligence and I'm here to assist you with a variety of tasks as best I can, 24 hours a day seven days a week"
+        if q.replace(" ","")=="whois" or q.replace(" ","")=="whatis" or q.replace(" ","")=="jarviswhois" or q.replace(" ","")=="jarviswhatis":
+            text="Please tell me what do you want to know about"
+        else:
+            text="Allow me to introduce myself I am Jarvis, the virtual artificial intelligence and I'm here to assist you with a variety of tasks as best I can, 24 hours a day seven days a week"
         
 
     #for greeting
     elif q.replace(" ","") in commandN.replace(" ",""):
         text="I am fine how may I help you"
         
+    #for asking question
+    elif commandQ.replace(" ","") in q.replace(" ","") or commandR.replace(" ","") in q.replace(" ",""):
+        q=q.replace(" ","")
+        q=q.replace("jarvis","")
+        q=q.replace("whois","")
+        q=q.replace("whatis","")
+        if q=="":
+            text="Please tell me what do you want to know about"
+        else:
+            try:
+                text=f"According to wikipedia {wikipedia.summary(query, sentences = 5)}"
+            except:
+                try:
+                    text="here is what i found on the internet"
+                    results=search(query)
+                    webbrowser.open(results)
+                except:
+                    text="Sorry about that but I can't find the answer to your question"
+
+                
 
     #for telling joke
     elif q.replace(" ","") in commandF.replace(" ","") or q.replace(" ","") in commandG.replace(" ",""):
@@ -66,6 +105,30 @@ def core(query):
     elif q.replace(" ","") in commandH.replace(" ","") or q.replace(" ","") in commandI.replace(" ",""):
         time=datetime.datetime.now().strftime('%I:%M %p')
         text=f'now it is {time}'
+
+    #for reducing brightness
+    elif q.replace(" ","") in commandS.replace(" ","") or q.replace(" ","") in commandT.replace(" ","") or q.replace(" ","") in commandU.replace(" ","") or q.replace(" ","") in commandV.replace(" ",""):
+        try:
+            current_brightness = sbc.get_brightness()
+            if current_brightness==0:
+                text="your screen brightness is already at it's lowest level"
+            else:
+                text="okay"
+                sbc.set_brightness(current_brightness-10)
+        except:
+            text="looks like I don't have the permition to reduce your screen brightness"
+
+    #for increasing brightness
+    elif q.replace(" ","") in commandW.replace(" ","") or q.replace(" ","") in commandX.replace(" ","") or q.replace(" ","") in commandY.replace(" ","") or q.replace(" ","") in commandZ.replace(" ",""):
+        try:
+            current_brightness = sbc.get_brightness()
+            if current_brightness==100:
+                text="your screen brightness is already at it's highest level"
+            else:
+                text="okay"
+                sbc.set_brightness(current_brightness+10)
+        except:
+            text="looks like I don't have the permition to increase your screen brightness"
         
 
     #for telling news
@@ -138,7 +201,7 @@ def core(query):
         text="here is what i found on the internet"
         webbrowser.open(f'https://www.google.com/search?q={query}') 
     
-
+    print(text)
     speak(text)
 
 
