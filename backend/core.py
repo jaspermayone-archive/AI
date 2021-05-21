@@ -4,6 +4,8 @@ from search import search
 from location import location
 from weather import weather
 from news import news
+from password import password
+from word2number import w2n
 import screen_brightness_control as sbc
 import wikipedia  
 import webbrowser
@@ -52,6 +54,8 @@ commandW='jarvis increase the brightness'
 commandX='jarvis increase the screen brightness'
 commandY='jarvis increase screen brightness'
 commandZ='jarvis increase brightness'
+#commands for setting brightness
+commandAA='set screen brightness to'
 
 
 def core(query):
@@ -116,7 +120,7 @@ def core(query):
                 text="okay"
                 sbc.set_brightness(current_brightness-10)
         except:
-            text="looks like I don't have the permition to reduce your screen brightness"
+            text="looks like I don't have the permission to reduce your screen brightness"
 
     #for increasing brightness
     elif q.replace(" ","") in commandW.replace(" ","") or q.replace(" ","") in commandX.replace(" ","") or q.replace(" ","") in commandY.replace(" ","") or q.replace(" ","") in commandZ.replace(" ",""):
@@ -128,8 +132,44 @@ def core(query):
                 text="okay"
                 sbc.set_brightness(current_brightness+10)
         except:
-            text="looks like I don't have the permition to increase your screen brightness"
+            text="looks like I don't have the permission to increase your screen brightness"
         
+
+    #for setting brightness   
+    elif commandAA.replace(" ","") in q.replace(" ",""):
+        q=q.replace("set",'')
+        q=q.replace("screen",'')
+        q=q.replace("brightness",'')
+        q=q.replace("to",'')
+        q=q.replace("jarvis",'')
+        if q.replace(" ","")=="":
+            text="Sorry about that but I couldn't understand what should be the screen brightness"
+        else:
+            try:
+                try:
+                    q=int(q.replace(" ",''))
+                    if q<0:
+                        text="Sorry about that but screen brightness can't be less than 0" 
+                    elif q>100:
+                        text="Sorry about that but screen brightness can't be more than 100"
+                    else:
+                        text="okay"
+                        sbc.set_brightness(q)
+                except ValueError:
+                    try:
+                        q=int(w2n.word_to_num(q))
+                        if q<0:
+                            text="Sorry about that but screen brightness can't be less than 0" 
+                        elif q>100:
+                            text="Sorry about that but screen brightness can't be more than 100"
+                        else:
+                            text="okay"
+                            sbc.set_brightness(q)
+                    except:
+                        text="Sorry about that but I couldn't understand what should be the screen brightness"
+
+            except:
+                text="looks like I don't have the permission to increase your screen brightness"
 
     #for telling news
     elif q.replace(" ","") in commandO.replace(" ","") or q.replace(" ","") in commandP.replace(" ","") or q.replace(" ","") == "news":
