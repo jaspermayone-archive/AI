@@ -5,6 +5,7 @@ from location import location
 from weather import weather
 from news import news
 from password import password
+from story import story
 from word2number import w2n
 import screen_brightness_control as sbc
 import wikipedia  
@@ -56,6 +57,15 @@ commandY='jarvis increase screen brightness'
 commandZ='jarvis increase brightness'
 #commands for setting brightness
 commandAA='set screen brightness to'
+#commands for setting password
+commandAB='create a password'
+commandAC='generate a password'
+commandAD='jarvis create a password'
+commandAE='jarvis generate a password'
+#commands for generaing text
+commandAF="jarvis write something about"
+commandAG="write something about"
+
 
 
 def core(query):
@@ -98,7 +108,27 @@ def core(query):
                 except:
                     text="Sorry about that but I can't find the answer to your question"
 
-                
+    #for generaing text
+    elif commandAF.replace(" ","") in q.replace(" ","") or  commandAG.replace(" ","")in q.replace(" ",""):
+        quaryA=q.replace(commandAF,"")
+        quaryB=quaryA.replace(commandAG,"")
+        if quaryB.replace(" ","")=="":
+            text="sorry about that but i couldn't hear about what i should write"
+        else:
+            try:
+                written=story(quaryB,char=1000)
+                if written==quaryB:
+                    text=f"sorry about that but i don't anything about this"
+                else:
+                    text=f"here is what i have written {written}"
+            except:
+                text=f"sorry about that but i don't anything about this"
+             
+    #for creating passwords
+    elif q.replace(" ","") == commandAB.replace(" ","") or q.replace(" ","") == commandAC.replace(" ","") or q.replace(" ","") == commandAD.replace(" ","") or q.replace(" ","") == commandAE.replace(" ",""):
+        result=password()
+        text=f"you can use {result} as your password"
+
 
     #for telling joke
     elif q.replace(" ","") in commandF.replace(" ","") or q.replace(" ","") in commandG.replace(" ",""):
