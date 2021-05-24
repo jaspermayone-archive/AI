@@ -5,7 +5,6 @@ from location import location
 from weather import weather
 from news import news
 from password import password
-from story import story
 from word2number import w2n
 import screen_brightness_control as sbc
 import wikipedia  
@@ -35,8 +34,8 @@ commandK='jarvis tell me my location'
 commandL='jarvis how is the weather'
 commandM='jarvis tell me about the weather'
 #commands for telling weather of the required city
-commandL='how is the weather in'
-commandM='tell me about the weather of'
+commandL2='how is the weather in'
+commandM2='tell me about the weather of'
 #commands for greeting
 commandN='jarvis how are you'
 #commands for news
@@ -88,7 +87,14 @@ def core(query):
     #for greeting
     elif q.replace(" ","") in commandN.replace(" ",""):
         text="I am fine how may I help you"
-        
+
+
+    #for telling time
+    elif q.replace(" ","") in commandH.replace(" ","") or q.replace(" ","") in commandI.replace(" ",""):
+        time=datetime.datetime.now().strftime('%I:%M %p')
+        text=f'now it is {time}'  
+
+         
     #for asking question
     elif commandQ.replace(" ","") in q.replace(" ","") or commandR.replace(" ","") in q.replace(" ",""):
         q=q.replace(" ","")
@@ -116,6 +122,7 @@ def core(query):
             text="sorry about that but i couldn't hear about what i should write"
         else:
             try:
+                from story import story
                 written=story(quaryB,char=1000)
                 if written==quaryB:
                     text=f"sorry about that but i don't anything about this"
@@ -134,11 +141,6 @@ def core(query):
     elif q.replace(" ","") in commandF.replace(" ","") or q.replace(" ","") in commandG.replace(" ",""):
         text=pyjokes.get_joke(language='en', category= 'all')
         
-
-    #for telling time
-    elif q.replace(" ","") in commandH.replace(" ","") or q.replace(" ","") in commandI.replace(" ",""):
-        time=datetime.datetime.now().strftime('%I:%M %p')
-        text=f'now it is {time}'
 
     #for reducing brightness
     elif q.replace(" ","") in commandS.replace(" ","") or q.replace(" ","") in commandT.replace(" ","") or q.replace(" ","") in commandU.replace(" ","") or q.replace(" ","") in commandV.replace(" ",""):
@@ -210,6 +212,16 @@ def core(query):
         except:
             text="Sorry about that but I couldn't access the server"
             
+    
+    #for telling location
+    elif q.replace(" ","") in commandJ.replace(" ","") or q.replace(" ","") in commandK.replace(" ",""):
+        try:
+            locate=location()
+            locate=str(locate)
+            text=f'You are currently in {locate}'
+        except:
+            text="Sorry about that but I couldn't access the server"
+
 
     #for telling weather of the current city
     elif q.replace(" ","") in commandL.replace(" ","") or q.replace(" ","") in commandM.replace(" ",""):
@@ -225,11 +237,15 @@ def core(query):
             
 
     #for telling weather of the required city
-    elif commandL.replace(" ","") in q.replace("jarvis","").replace("j.a.r.v.i.s","").replace(" ","") or commandM.replace(" ","") in q.replace("jarvis","").replace("j.a.r.v.i.s","").replace(" ",""):
+    elif commandL2.replace(" ","") in q.replace(" ","") or commandM2.replace(" ","") in q.replace(" ",""):
         try:
-            city=q.replace("jarvis","").replace("j.a.r.v.i.s","").replace(" ","")
-            city=city.replace(commandL.replace(" ",""),"")
-            text=weather(city)
+            city=q.replace("jarvis","").replace(" ","")
+            city=city.replace(commandL2.replace(" ",""),"")
+            city=city.replace(commandM2.replace(" ",""),"")
+            if city.replace(" ","")=="":
+                text="Which city's weather you want to know"
+            else:
+                text=weather(city)
         except:
             text="Sorry about that but I couldn't access the server"
             
@@ -274,6 +290,6 @@ def core(query):
     print(text)
     speak(text)
 
-
-a=input()
-core(a)
+while True:
+    a=input("enter the command")
+    core(a)
