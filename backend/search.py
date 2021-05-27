@@ -17,4 +17,3 @@ def search(query):
                 link=anchors[0]['href']
                 results=link
         return results
-

@@ -6,6 +6,7 @@ from weather import weather
 from news import news
 from password import password
 from word2number import w2n
+from PyDictionary import PyDictionary
 import screen_brightness_control as sbc
 import wikipedia  
 import webbrowser
@@ -64,7 +65,9 @@ commandAE='jarvis generate a password'
 #commands for generaing text
 commandAF="jarvis write something about"
 commandAG="write something about"
-
+#commands for telling meaning
+commandAH="what is the meaning of"
+commandAI="meaning of"
 
 
 def core(query):
@@ -87,6 +90,31 @@ def core(query):
     #for greeting
     elif commandN.replace(" ","") in q.replace(" ",""):
         text="I am fine, how may I help you"
+
+    #for telling meaning
+    elif commandAH.replace(" ","") in q.replace(" ","") or commandAI.replace(" ","") in q.replace(" ",""):
+        q=q.replace(commandAH,"")
+        q=q.replace(commandAI,"")
+        q=q.replace('jarvis',"")
+        if q.replace(" ","")=="":
+            text="Sorry about that but I could not hear which word's meaning you want to know"
+        else:
+            dictionary=PyDictionary()
+            dic=dictionary.meaning(q)
+            try:
+                text=dic['Noun'][0]
+                text=f"The meaning of the word {q} is {text}"
+            except:
+                try:
+                    text=dic['Verb'][0]
+                    text=f"The meaning of the word {q} is {text}"
+                except:
+                    try:
+                        text=dic['Adjective'][0]
+                        text=f"The meaning of the word {q} is {text}"
+                    except:
+                        text=f"Sorry about that but I don't know the meaning of {q}"
+            
 
 
     #for telling time
@@ -289,7 +317,7 @@ def core(query):
         webbrowser.open(f'https://www.google.com/search?q={query}') 
     
     print(text)
-    speak(text)
+    #speak(text)
 
 while True:
     a=input("enter the command ")
