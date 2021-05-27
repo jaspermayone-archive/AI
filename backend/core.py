@@ -160,7 +160,7 @@ def core(query):
                 text=f"Sorry about that but i don't anything about this"
              
     #for creating passwords
-    elif q.replace(" ","") == commandAB.replace(" ","") or q.replace(" ","") == commandAC.replace(" ","") or q.replace(" ","") == commandAD.replace(" ","") or q.replace(" ","") == commandAE.replace(" ",""):
+    elif commandAB.replace(" ","") in q.replace(" ","") or commandAC.replace(" ","") in q.replace(" ","") or commandAD.replace(" ","") in q.replace(" ","") or commandAE.replace(" ","") in q.replace(" ",""):
         result=password()
         text=f"You can use {result} as your password"
 
@@ -317,7 +317,7 @@ def core(query):
         webbrowser.open(f'https://www.google.com/search?q={query}') 
     
     print(text)
-    #speak(text)
+    speak(text)
 
 while True:
     a=input("enter the command ")
