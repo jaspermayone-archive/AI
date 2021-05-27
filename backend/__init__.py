@@ -1,16 +1,6 @@
-import speech_recognition as sr
-import pyttsx3
-
-def JARVIS_COMMANDS():
-    listener = sr.Recognizer()
-    with sr.Microphone() as source:
-        listener.adjust_for_ambient_noise(source)
-        InputFromUser = listener.listen(source, None, 10)
-        command = listener.recognize_google(InputFromUser)
-        command = command.lower()
-        if "jarvis" in command:
-            command = command.replace("jarvis", "")                
-            if "solve" in command:
-                command - command.replace("solve", "")
-                sum =  eval(command.replace("plus", "+"))
-                pyttsx3.speak(sum)
+__project__      = 'J.A.R.V.I.S'
+__version__      = '0.0.1'
+__keywords__     = ['jarvis', 'J.A.R.V.I.S', 'ai', 'virtual assistant']
+__author__       = 'Stark industries'
+__author_email__ = 'saptakbhoumik@gmail.com'
+__platforms__    = 'WINDOWS'
