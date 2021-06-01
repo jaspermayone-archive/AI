@@ -323,8 +323,9 @@ def core(query):
                     text="Here is what i found on the internet"
                     webbrowser.open(f'https://www.google.com/search?q={query}')
                 else:
-                    text==text
+                    text=text
             except:
+                text="Here is what i found on the internet"
                 webbrowser.open(f'https://www.google.com/search?q={query}') 
     
     print(text)
