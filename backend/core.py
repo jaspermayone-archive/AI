@@ -1,10 +1,11 @@
 #The core.py file contains all commands for jarvis but some commands are also present in app.py
-from speak import speak
-from search import search
-from location import location
-from weather import weather
-from news import news
-from password import password
+from .speak import *
+from .search import *
+from .location import *
+from .weather import *
+from .news import *
+from .password import *
+from .chat import *
 from word2number import w2n
 from PyDictionary import PyDictionary
 import screen_brightness_control as sbc
@@ -150,7 +151,7 @@ def core(query):
             text="Sorry about that but i couldn't hear about what i should write"
         else:
             try:
-                from story import story
+                from .story import story
                 written=story(quaryB,char=1000)
                 if written==quaryB:
                     text=f"Sorry about that but i don't anything about this"
@@ -313,12 +314,19 @@ def core(query):
             
     #searching the web if can't answer question
     else:
-        text="Here is what i found on the internet"
-        webbrowser.open(f'https://www.google.com/search?q={query}') 
+        if q.replace(" ","")=='jarvis':
+            text="Hello, I am jarvis how may I help you"
+        else:
+            try:
+                text=chat(query)
+                if text=="":
+                    text="Here is what i found on the internet"
+                    webbrowser.open(f'https://www.google.com/search?q={query}')
+                else:
+                    text==text
+            except:
+                webbrowser.open(f'https://www.google.com/search?q={query}') 
     
     print(text)
-    speak(text)
+    #speak(text)
 
-while True:
-    a=input("enter the command ")
-    core(a)
