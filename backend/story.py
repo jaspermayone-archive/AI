@@ -8,6 +8,5 @@ def story(sentence,char=100):
     input_ids = tokenizer.encode(sentence, return_tensors='pt')
     output = model.generate(input_ids, max_length=char, num_beams=5, no_repeat_ngram_size=2, early_stopping=True)
     text = tokenizer.decode(output[0], skip_special_tokens=True)
-    print(text)
     return text
 
