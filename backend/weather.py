@@ -14,7 +14,7 @@ def weather(city):
     strd = listdiv[5].text
     pos = strd.find('Wind')
     other_data = strd[pos:]
-    result = f'the Temperature is currently {temp.replace("C", "celcius")} and the sky is now {sky}'
+    result = f'The temperature is currently {temp.replace("C", "celcius")} and the sky is now {sky}'
     return result
 
     

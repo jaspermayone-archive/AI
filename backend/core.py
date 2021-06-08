@@ -1,11 +1,11 @@
 #The core.py file contains all commands for jarvis but some commands are also present in app.py
-from .speak import *
 from .search import *
 from .location import *
 from .weather import *
 from .news import *
 from .password import *
 from .chat import *
+from pysimilar import compare
 from word2number import w2n
 from PyDictionary import PyDictionary
 import screen_brightness_control as sbc
@@ -84,7 +84,7 @@ def core(query):
         
 
     #for introduction
-    elif commandA.replace(" ","") in q.replace(" ","") or commandB.replace(" ","") in q.replace(" ","") or commandC.replace(" ","") in q.replace(" ","") or commandD.replace(" ","") in q.replace(" ","") or commandE.replace(" ","") in q.replace(" ",""):
+    elif compare(commandA,q)>0.65 or compare(commandB,q)>0.65  or compare(commandC,q)>0.65 or compare(commandD,q)>0.65 or compare(commandE,q)>0.65 or commandA.replace(" ","") in q.replace(" ","") or commandB.replace(" ","") in q.replace(" ","") or commandC.replace(" ","") in q.replace(" ","") or commandD.replace(" ","") in q.replace(" ","") or commandE.replace(" ","") in q.replace(" ",""):
         if q.replace(" ","")=="whois" or q.replace(" ","")=="whatis" or q.replace(" ","")=="jarviswhois" or q.replace(" ","")=="jarviswhatis":
             text="Please tell me what do you want to know about"
         else:
@@ -92,7 +92,7 @@ def core(query):
         
 
     #for greeting
-    elif commandN.replace(" ","") in q.replace(" ",""):
+    elif compare(commandN,q)>0.65 or commandN.replace(" ","") in q.replace(" ",""):
         text="I am fine, how may I help you"
 
     #for telling meaning
@@ -121,11 +121,11 @@ def core(query):
             
 
     #bit of chat 
-    elif chatA.replace(" ","") in q.replace(" ","") or chatB.replace(" ","") in q.replace(" ",""):
+    elif compare(chatA,q)>0.65 or compare(chatB,q)>0.65 or chatA.replace(" ","") in q.replace(" ","") or chatB.replace(" ","") in q.replace(" ",""):
         text="For you always"
 
     #for telling time
-    elif commandH.replace(" ","") in q.replace(" ","") or commandI.replace(" ","") in q.replace(" ","") :
+    elif compare(commandH,q)>0.65  or compare(commandI,q)>0.65 or commandH.replace(" ","") in q.replace(" ","") or commandI.replace(" ","") in q.replace(" ",""):
         time=datetime.datetime.now().strftime('%I:%M %p')
         text=f'Now it is {time}'  
 
@@ -167,18 +167,18 @@ def core(query):
                 text=f"Sorry about that but i don't anything about this"
              
     #for creating passwords
-    elif commandAB.replace(" ","") in q.replace(" ","") or commandAC.replace(" ","") in q.replace(" ","") or commandAD.replace(" ","") in q.replace(" ","") or commandAE.replace(" ","") in q.replace(" ",""):
+    elif compare(commandAB,q)>0.65 or compare(commandAC,q)>0.65 or compare(commandAD,q)>0.65 or compare(commandAE,q)>0.65 or commandAB.replace(" ","") in q.replace(" ","") or commandAC.replace(" ","") in q.replace(" ","") or commandAD.replace(" ","") in q.replace(" ","") or commandAE.replace(" ","") in q.replace(" ",""):
         result=password()
         text=f"You can use {result} as your password"
 
 
     #for telling joke
-    elif commandF.replace(" ","") in q.replace(" ","") or commandG.replace(" ","") in q.replace(" ","") :
+    elif compare(commandF,q)>0.65 or commandF.replace(" ","") in q.replace(" ","") or compare(commandG,q)>0.65 or commandG.replace(" ","") in q.replace(" ","") :
         text=pyjokes.get_joke(language='en', category= 'all')
         
 
     #for reducing brightness
-    elif commandS.replace(" ","") in q.replace(" ","") or commandT.replace(" ","") in q.replace(" ","") or commandU.replace(" ","") in q.replace(" ","") or commandV.replace(" ","") in q.replace(" ",""):
+    elif compare(commandS,q)>0.65 or compare(commandT,q)>0.65 or compare(commandU,q)>0.65 or compare(commandV,q)>0.65 or commandS.replace(" ","") in q.replace(" ","") or commandT.replace(" ","") in q.replace(" ","") or commandU.replace(" ","") in q.replace(" ","") or commandV.replace(" ","") in q.replace(" ",""):
         try:
             current_brightness = sbc.get_brightness()
             if current_brightness==0:
@@ -190,7 +190,7 @@ def core(query):
             text="Looks like I don't have the permission to reduce your screen brightness"
 
     #for increasing brightness
-    elif commandW.replace(" ","") in q.replace(" ","") or commandX.replace(" ","") in q.replace(" ","") or commandY.replace(" ","") in q.replace(" ","") or commandZ.replace(" ","") in q.replace(" ",""):
+    elif compare(commandW,q)>0.65 or compare(commandX,q)>0.65 or compare(commandY,q)>0.65 or compare(commandZ,q)>0.65 or commandW.replace(" ","") in q.replace(" ","") or commandX.replace(" ","") in q.replace(" ","") or commandY.replace(" ","") in q.replace(" ","") or commandZ.replace(" ","") in q.replace(" ",""):
         try:
             current_brightness = sbc.get_brightness()
             if current_brightness==100:
@@ -249,7 +249,7 @@ def core(query):
             
     
     #for telling location
-    elif commandJ.replace(" ","") in q.replace(" ","") or commandK.replace(" ","") in q.replace(" ",""):
+    elif compare(commandJ,q)>0.65 or  compare(commandK,q)>0.65 or commandJ.replace(" ","") in q.replace(" ","") or commandK.replace(" ","") in q.replace(" ",""):
         try:
             locate=location()
             locate=str(locate)
@@ -271,7 +271,7 @@ def core(query):
             text="Sorry about that but I couldn't access the server"
 
     #for telling weather of the current city
-    elif  commandL.replace(" ","") in q.replace(" ","") or commandM.replace(" ","") in q.replace(" ",""):
+    elif compare(commandL,q)>0.65 or compare(commandM,q)>0.65 or commandL.replace(" ","") in q.replace(" ","") or commandM.replace(" ","") in q.replace(" ",""):
         try:
             locate=location()
             locate=str(locate)
@@ -318,7 +318,7 @@ def core(query):
         except:
             text="Sorry about that but I couldn't understand what to open"
             
-    #searching the web if can't answer question
+    #chatting or searching the web if can't answer question
     else:
         if q.replace(" ","")=='jarvis':
             text="Hello, I am jarvis how may I help you"
@@ -335,5 +335,5 @@ def core(query):
                 webbrowser.open(f'https://www.google.com/search?q={query}') 
     
     print(text)
-    #speak(text)
+
 
