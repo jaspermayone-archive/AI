@@ -69,6 +69,9 @@ commandAG="write something about"
 #commands for telling meaning
 commandAH="what is the meaning of"
 commandAI="meaning of"
+#bit of chat
+chatA="are you there"
+chatB="are you up"
 
 
 def core(query):
@@ -117,6 +120,9 @@ def core(query):
                         text=f"Sorry about that but I don't know the meaning of {q}"
             
 
+    #bit of chat 
+    elif chatA.replace(" ","") in q.replace(" ","") or chatB.replace(" ","") in q.replace(" ",""):
+        text="For you always"
 
     #for telling time
     elif commandH.replace(" ","") in q.replace(" ","") or commandI.replace(" ","") in q.replace(" ","") :

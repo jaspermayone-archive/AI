@@ -6,3 +6,4 @@ def chat(query):
     inputs = tokenizer([query], return_tensors='pt')
     reply_ids = model.generate(**inputs)
     return tokenizer.batch_decode(reply_ids,skip_special_tokens=True)[0]
+
