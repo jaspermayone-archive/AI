@@ -335,5 +335,6 @@ def core(query):
                 webbrowser.open(f'https://www.google.com/search?q={query}') 
     
     print(text)
+    return text
 
 
