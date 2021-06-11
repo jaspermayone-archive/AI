@@ -1,6 +1,8 @@
-from PyQt5 import QtCore, QtWidgets, QtWebEngineWidgets
+from PyQt5 import QtCore, QtGui, QtWidgets, QtWebEngineWidgets
 import concurrent.futures
+import urllib.request
 import threading
+import os
 from easySpeech import speech
 from backend.core import core
 from backend.speak import speak
@@ -20,14 +22,20 @@ class MainThread(QtCore.QThread):
                 return_value=""
             print(return_value)
             with concurrent.futures.ThreadPoolExecutor() as main:
-                main_core = main.submit(core,return_value)
-                value = main_core.result()
-                speak(value)
+                try:
+                    main_core = main.submit(core,return_value)
+                    value = main_core.result()
+                    speak(value)
+                except:
+                    pass
 
 
 class Widget(QtWidgets.QWidget):
     def __init__(self, parent=None):
         super(Widget, self).__init__(parent)
+        # defining shotcuts
+        self.shortcut_open = QtWidgets.QShortcut(QtGui.QKeySequence('f5'), self)
+        self.shortcut_open.activated.connect(self.download)
         self.setWindowTitle("J.A.R.V.I.S")
         self.setFixedSize(330, 620)
         self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
@@ -35,23 +43,38 @@ class Widget(QtWidgets.QWidget):
         self.view = QtWebEngineWidgets.QWebEngineView()
         self.view .setContextMenuPolicy(QtCore.Qt.NoContextMenu)
         self.view.page().profile().downloadRequested.connect(self.on_downloadRequested)
-        url = "file:///templates/index.html"
+        try:
+            urllib.request.urlopen("http://google.com")
+            url = "file:///templates/index.html"
+        except:
+            url = "file:///templates/no_internet.gif"
         self.view.load(QtCore.QUrl(url))
         hbox = QtWidgets.QHBoxLayout(self)
         hbox.addWidget(self.view)
+        self.setWindowIcon(QtGui.QIcon(os.path.join('images', 'source.png')))
+
+    def download(self):
+        try:
+            function=MainThread()
+            th = threading.Thread(target=function.run)
+            th.daemon = True
+            th.start()
+        except:
+            pass 
+
 #yes you are right i am using download requested to call python function
     @QtCore.pyqtSlot("QWebEngineDownloadItem*")
     def on_downloadRequested(self):
-        function=MainThread()
-        th = threading.Thread(target=function.run)
-        th.daemon = True
-        th.start()
-        
-
+        try:
+            function=MainThread()
+            th = threading.Thread(target=function.run)
+            th.daemon = True
+            th.start()
+        except:
+            pass      
 
 if __name__ == "__main__":
     import sys
-
     app = QtWidgets.QApplication(sys.argv)
     w = Widget()
     w.show()
