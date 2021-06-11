@@ -16,7 +16,6 @@ import datetime
 from youtubesearchpython import VideosSearch
 
 
-
 #commands for introduction
 commandA='who are you'
 commandB='what is your name'
