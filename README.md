@@ -26,7 +26,7 @@ pip install -r setup.txt
 ```
 
 ## Contributing
-<a href="https://github.com/sijey-praveen/Kiyd/pulls">Pull requests</a> are welcome. For major changes or improvement, please open an <a href="https://github.com/sijey-praveen/Kiyd/issues">issue</a> first to discuss what you would like to change or add.  
+<a href="https://github.com/Adapt-Development/J.A.R.V.I.S/pulls">Pull requests</a> are welcome. For major changes or improvement, please open an <a href="https://github.com/Adapt-Development/J.A.R.V.I.S/issues">issue</a> first to discuss what you would like to change or add.  
 
 ## License
 **Copyright (C) 2007 Free Software Foundation, Inc.**
