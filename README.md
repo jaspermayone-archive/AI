@@ -10,7 +10,7 @@
 J.A.R.V.I.S - Your 24*7 personal assistant who is always there to help you
 
 ## Screenshot
-<img src="https://media.discordapp.net/attachments/836962944196673576/853627908795138048/unknown.png?width=1066&height=599" width="600px">
+<img src="https://raw.githubusercontent.com/Adapt-Development/J.A.R.V.I.S/master/images/ss.png" width="600px">
 
 ## Requirement 
 
