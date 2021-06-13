@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/Adapt-Development/J.A.R.V.I.S/master/images/Source.png?token=ATGZVDE32CEKH4MKT4G3DKLAYYGBI" width="100px">
+<img src="https://raw.githubusercontent.com/Adapt-Development/J.A.R.V.I.S/master/images/Source.png" width="100px">
 
 # J.A.R.V.I.S
 
