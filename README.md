@@ -42,7 +42,7 @@ Currently J.A.R.V.I.S can do the following things:-
 - Tell the weather of your city or some other city🌫️(For example you can say "How is the weather" or "How is the weather in Delhi")
 - Tell you the latest news📰(For example you can say "What happened today")
 - Answer your question⁉️(For example you can say "Who is Elon Musk" or "What is plasma")
-- Control your screen brightness🔆(For example you can say "Reduce the brightness" or "Increase the brightness" or "Set screen brightness to 70"
+- Control your screen brightness🔆(For example you can say "Reduce the brightness" or "Increase the brightness" or "Set screen brightness to 70")
 - Create strong password for you🔑(For example you can say "Create a password")
 - He can also write about any topic✍️(For example you can say "Write something climate change")
 - Tell you the meaning of any word📙(For example you can say "What is the meaning of titanium")
