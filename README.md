@@ -4,10 +4,11 @@
 
 [![Build](https://img.shields.io/badge/Build-Passing-red?style=for-the-badge&logo=appveyor)]()
 [![Support](https://img.shields.io/badge/Supports-Windows%2010-9cf?style=for-the-badge)](https://python.org/about/)
+[![Support](https://img.shields.io/badge/Supports-LINUX%20-9cf?style=for-the-badge)](https://python.org/about/)
 [![Language](https://img.shields.io/badge/Written%20Language-Python-green?style=for-the-badge)](https://python.org/about/)
 
 ## About
-J.A.R.V.I.S is a personal assistant for Windows user and he can do some great stuff for you.
+J.A.R.V.I.S is a personal assistant for Windows and Linux user and he can do some great stuff for you.
 
 ## Screenshot
 <p align="center">
@@ -27,8 +28,8 @@ J.A.R.V.I.S is a personal assistant for Windows user and he can do some great st
 In order to start J.A.R.V.I.S just clone this repository or download the source code<br>
 Then open command prompt in the directory where you have stored the source code and run the following command
 ```shell
-pip install -r requirements.txt
-python app.py
+pip3 install -r requirements.txt
+python3 app.py
 ```
 Wait for sometime for the program to start running(Note:-The startup speed of JARVIS depends on the specs of your computer)<br>
 Then click on the arc reactor(rotating ring) or press f5 and start saying what you want to say
