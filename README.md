@@ -61,7 +61,7 @@ The J.A.R.V.I.S is written primarily in Python3x
 Have a look at the [open issues](https://github.com/Adapt-Development/J.A.R.V.I.S/issues) to find a mission that resonates with you.
 
 ## License
-**Copyright (C) 2007 Free Software Foundation, Inc.**
+**Copyright (C) 2021 Free Software Foundation, Inc.**
 
 The licenses for most software and other practical works are designed
 to take away your freedom to share and change the works.  By contrast,
