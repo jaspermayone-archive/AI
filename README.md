@@ -11,7 +11,7 @@ J.A.R.V.I.S is a personal assistant for Windows user and he can do some great st
 
 ## Screenshot
 <p align="center">
-<img src="https://raw.githubusercontent.com/Adapt-Development/J.A.R.V.I.S/master/images/ss.png" width="600px"></p>
+<img src="https://raw.githubusercontent.com/Adapt-Development/J.A.R.V.I.S/master/images/ss.png" width="200px"></p>
 
 ## Requirement 
 
