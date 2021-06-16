@@ -1,6 +1,7 @@
 beautifulsoup4
 DateTime
 pysimilar
+PyDictionary
 easySpeech
 geocoder
 geopy
