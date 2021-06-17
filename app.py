@@ -45,7 +45,7 @@ class Widget(QtWidgets.QWidget):
         self.view.page().profile().downloadRequested.connect(self.on_downloadRequested)
         try:
             urllib.request.urlopen("http://google.com")
-            url = "https://adapt-development.github.io/J.A.R.V.I.S/templates/"
+            url = "file:///templates/index.html"
         except:
             url = "file:///templates/no_internet.gif"
         self.view.load(QtCore.QUrl(url))
