@@ -61,6 +61,8 @@ The J.A.R.V.I.S is written primarily in Python3x
 
 Have a look at the [open issues](https://github.com/Adapt-Development/J.A.R.V.I.S/issues) to find a mission that resonates with you.
 
+Please check [CONTRIBUTING.md](https://github.com/Adapt-Development/J.A.R.V.I.S/blob/master/CONTRIBUTING.md) to know how you can contribute 
+
 ## License
 J.A.R.V.I.S is lisenced under GNU General Public License v3.0
 
