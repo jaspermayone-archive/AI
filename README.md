@@ -2,7 +2,6 @@
 
 # J.A.R.V.I.S
 
-[![Build](https://img.shields.io/badge/Build-Passing-red?style=for-the-badge&logo=appveyor)]()
 [![Support](https://img.shields.io/badge/Supports-Windows%2010-9cf?style=for-the-badge)](https://python.org/about/)
 [![Support](https://img.shields.io/badge/Supports-LINUX%20-9cf?style=for-the-badge)](https://python.org/about/)
 [![Language](https://img.shields.io/badge/Written%20Language-Python-green?style=for-the-badge)](https://python.org/about/)
