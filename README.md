@@ -20,8 +20,8 @@ J.A.R.V.I.S is a personal assistant for Windows and Linux user and he can do som
 - Internet Connection
 - Microphone
 - Speakers
-- Atleast 10Gb of free storage
-- Atleast 8GB Ram
+- At least 10GB of free storage
+- At least 8GB Ram
 - GPU(Optional)
 
 ## Getting Started
@@ -31,11 +31,11 @@ Then open command prompt in the directory where you have stored the source code 
 pip3 install -r requirements.txt
 python3 app.py
 ```
-Wait for sometime for the program to start running(Note:-The startup speed of JARVIS depends on the specs of your computer)<br>
+Wait for sometime for the program to start running(Note: The startup speed of JARVIS depends on the specs of your computer)<br>
 Then click on the arc reactor(rotating ring) or press f5 and start saying what you want to say
 
 ## Features
-Currently J.A.R.V.I.S can do the following things:-
+Currently J.A.R.V.I.S can do the following things:
 
 - Tell you jokes to make you feel better🙂(For example you can say "Tell me a joke")
 - Tell you the time⏲(For example you can say "Tell me the time")
