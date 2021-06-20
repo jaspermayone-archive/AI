@@ -30,7 +30,7 @@ Then open command prompt in the directory where you have stored the source code 
 pip3 install -r requirements.txt
 python3 app.py
 ```
-Wait for sometime for the program to start running(Note: The startup speed of JARVIS depends on the specs of your computer)<br>
+Wait for sometime for the program to start running(Note: On running it for the first time it will downoad some models which will take some time)<br>
 Then click on the arc reactor(rotating ring) or press f5 and start saying what you want to say
 
 ## Features
