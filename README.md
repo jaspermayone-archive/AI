@@ -55,7 +55,7 @@ More features are comming soon so make sure to star and watch this repo so that 
 
 
 ## How to contribute
-Since it is a free software , you can contribute to make it better. New contributors are always welcome, whether you write code, create resources, report bugs, or suggest features.
+Since it is a free software, you can contribute to make it better. New contributors are always welcome, whether you write code, create resources, report bugs, or suggest features.
 
 The J.A.R.V.I.S is written primarily in Python3x
 
