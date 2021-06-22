@@ -2,7 +2,6 @@
 
 # J.A.R.V.I.S
 
-[![Build](https://img.shields.io/badge/Build-Passing-red?style=for-the-badge&logo=appveyor)]()
 [![Support](https://img.shields.io/badge/Supports-Windows%2010-9cf?style=for-the-badge)](https://python.org/about/)
 [![Support](https://img.shields.io/badge/Supports-LINUX%20-9cf?style=for-the-badge)](https://python.org/about/)
 [![Language](https://img.shields.io/badge/Written%20Language-Python-green?style=for-the-badge)](https://python.org/about/)
@@ -20,8 +19,8 @@ J.A.R.V.I.S is a personal assistant for Windows and Linux user and he can do som
 - Internet Connection
 - Microphone
 - Speakers
-- Atleast 10Gb of free storage
-- Atleast 8GB Ram
+- At least 10GB of free storage
+- At least 8GB Ram
 - GPU(Optional)
 
 ## Getting Started
@@ -31,11 +30,11 @@ Then open command prompt in the directory where you have stored the source code 
 pip3 install -r requirements.txt
 python3 app.py
 ```
-Wait for sometime for the program to start running(Note:-The startup speed of JARVIS depends on the specs of your computer)<br>
+Wait for sometime for the program to start running(Note: On running it for the first time it will downoad some models which will take some time)<br>
 Then click on the arc reactor(rotating ring) or press f5 and start saying what you want to say
 
 ## Features
-Currently J.A.R.V.I.S can do the following things:-
+Currently J.A.R.V.I.S can do the following things:
 
 - Tell you jokes to make you feel better🙂(For example you can say "Tell me a joke")
 - Tell you the time⏲(For example you can say "Tell me the time")
@@ -60,6 +59,8 @@ Since it is a free software, you can contribute to make it better. New contribut
 The J.A.R.V.I.S is written primarily in Python3x
 
 Have a look at the [open issues](https://github.com/Adapt-Development/J.A.R.V.I.S/issues) to find a mission that resonates with you.
+
+Please check [CONTRIBUTING.md](https://github.com/Adapt-Development/J.A.R.V.I.S/blob/master/CONTRIBUTING.md) to know how you can contribute 
 
 ## License
 J.A.R.V.I.S is lisenced under GNU General Public License v3.0
