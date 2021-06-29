@@ -21,7 +21,6 @@ J.A.R.V.I.S is a personal assistant for Windows and Linux user and he can do som
 - Speakers
 - At least 10GB of free storage
 - At least 8GB Ram
-- GPU(Optional)
 
 ## Getting Started
 In order to start J.A.R.V.I.S just clone this repository or download the source code<br>
