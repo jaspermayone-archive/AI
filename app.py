@@ -42,7 +42,7 @@ class Widget(QtWidgets.QWidget):
         self.view = QtWebEngineWidgets.QWebEngineView()
         self.view .setContextMenuPolicy(QtCore.Qt.NoContextMenu)
         self.view.page().profile().downloadRequested.connect(self.on_downloadRequested)
-        self.view.load(QtCore.QUrl("https://adapt-development.github.io/J.A.R.V.I.S/templates/"))
+        self.view.load(QtCore.QUrl("https://saptakbhoumik.github.io/J.A.R.V.I.S/templates/"))
         hbox = QtWidgets.QHBoxLayout(self)
         hbox.addWidget(self.view)
         self.setWindowIcon(QtGui.QIcon(os.path.join('images', 'source.png')))
