@@ -1,4 +1,4 @@
-<p align="center"><img src="https://raw.githubusercontent.com/Adapt-Development/J.A.R.V.I.S/master/images/Source.png" width="100px"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/SaptakBhoumik/J.A.R.V.I.S/master/images/Source.png" width="100px"></p>
 
 # J.A.R.V.I.S
 
@@ -11,7 +11,7 @@ J.A.R.V.I.S is a personal assistant for Windows and Linux user and he can do som
 
 ## Screenshot
 <p align="center">
-<img src="https://raw.githubusercontent.com/Adapt-Development/J.A.R.V.I.S/master/images/ss.png" width="200px"></p>
+<img src="https://raw.githubusercontent.com/SaptakBhoumik/J.A.R.V.I.S/master/images/ss.png" width="200px"></p>
 
 ## Requirement 
 
