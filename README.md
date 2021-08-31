@@ -1,21 +1,11 @@
-Please check out my  [latest project](https://github.com/Swallow-lang/swallow) => https://github.com/Swallow-lang/swallow
+# J.A.R.V.I.S AI and Assistant
 
-<p align="center"><img src="https://raw.githubusercontent.com/SaptakBhoumik/J.A.R.V.I.S/master/images/Source.png" width="100px"></p>
-
-# J.A.R.V.I.S
-
-[![Support](https://img.shields.io/badge/Supports-Windows%2010-9cf?style=for-the-badge)](https://python.org/about/)
-[![Support](https://img.shields.io/badge/Supports-LINUX%20-9cf?style=for-the-badge)](https://python.org/about/)
-[![Language](https://img.shields.io/badge/Written%20Language-Python-green?style=for-the-badge)](https://python.org/about/)
 
 ## About
-J.A.R.V.I.S is a personal assistant for Windows and Linux user and he can do some great stuff for you.
+J.A.R.V.I.S is a personal assistant for Windows and Linux users (Mac coming soon!). J.A.R.V.I.S is free and open source, and is available on GitHub. Originaly developed by [SaptakBhoumik](https://github.com/SaptakBhoumik), J.A.R.V.I.S is now maintained by [J-dogcoder](https://github.com/j-dogcoder/)
 
-## Screenshot
-<p align="center">
-<img src="https://raw.githubusercontent.com/SaptakBhoumik/J.A.R.V.I.S/master/images/ss.png" width="200px"></p>
 
-## Requirement 
+## Requirements
 
 - <a href="https://python.org/downloads">Python 3.6 or Above.</a>
 - Internet Connection
@@ -59,12 +49,10 @@ Since it is a free software, you can contribute to make it better. New contribut
 
 The J.A.R.V.I.S is written primarily in Python3x
 
-Have a look at the [open issues](https://github.com/Adapt-Development/J.A.R.V.I.S/issues) to find a mission that resonates with you.
+Have a look at the [open issues](https://github.com/j-dogcoder/AI/issues) to find a mission that resonates with you.
 
-Please check [CONTRIBUTING.md](https://github.com/Adapt-Development/J.A.R.V.I.S/blob/master/CONTRIBUTING.md) to know how you can contribute 
+Please check [CONTRIBUTING.md](https://github.com/j-dogcoder/AI/blob/master/CONTRIBUTING.md) to know how you can contribute 
 
 ## License
-J.A.R.V.I.S is lisenced under GNU General Public License v3.0
-
-Permissions of this strong copyleft license are conditioned on making available complete source code of licensed works and modifications, which include larger works using a licensed work, under the same license. Copyright and license notices must be preserved. Contributors provide an express grant of patent rights.
+J.A.R.V.I.S is lisenced under Eclipse Public License - v 2.0
 
