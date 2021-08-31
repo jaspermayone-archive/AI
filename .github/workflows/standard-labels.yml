@@ -17,4 +17,4 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         owner-name: 'j-dogcoder'
-        repository-name: 'repo-template'
+        repository-name: 'AI'
